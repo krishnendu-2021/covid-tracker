@@ -1,5 +1,6 @@
 {
-  "name": "corona-map",
+  "name": "covid-tracker",
+  "homepage": "http://Krishnendu-Mukherjee.github.io/covid-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
