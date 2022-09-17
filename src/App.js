@@ -17,14 +17,14 @@ function App() {
       <div className="App">
         <Navbar/>
         <Routes>
-          <Route exact path= '/' element={
+          <Route exact path= '/covid-tracker' element={
             <Fragment>
               <Cards/>
               <Linechart/>
             </Fragment>
           }/>
-          <Route exact path='/about' element={<About/>}/>
-          <Route exact path='/home' element={<Home/>}/>
+          {/* <Route exact path='/about' element={<About/>}/> */}
+          <Route exact path='/search' element={<Home/>}/>
         </Routes>
       </div>
     </Router>
