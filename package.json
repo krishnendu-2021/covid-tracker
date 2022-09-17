@@ -1,6 +1,6 @@
 {
   "name": "covid-tracker",
-  "homepage": "http://krishnendu-2021.github.io/covid_tracker",
+  "homepage": "http://krishnendu-2021.github.io/covid-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
