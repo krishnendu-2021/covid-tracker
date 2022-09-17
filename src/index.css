@@ -1,13 +1,14 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.radiowrapper label:hover {font-weight:bold}
+
+.radiowrapper input:checked + label {font-weight:bold; }
+
+.font-loader300{
+    font-family: 'Open Sans';
+    font-weight: 300 ;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.font-loader600{
+    font-family: 'Open Sans';
+    font-weight: 600 ;
 }
