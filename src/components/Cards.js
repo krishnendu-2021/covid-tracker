@@ -11,7 +11,7 @@ const Cards = () => {
       const fetchData = async()=>{
         const data = await fetch('https://covid19.mathdro.id/api');
         const parsedData = await data.json();
-        console.log(parsedData.confirmed);
+        // console.log(parsedData.confirmed);
         setcvalue(parsedData.confirmed.value)
         // setrvalue(parsedData.recovered.value)
         setdvalue(parsedData.deaths.value)

@@ -1,4 +1,5 @@
  import React, { useState, useEffect } from "react";
+ import Spinner from "./Spinner";
 
 
 const Home = () => {
@@ -10,7 +11,8 @@ const Home = () => {
   const [district, setdistrict] = useState([]);
   const [districtid, setdistrictid] = useState(null);
   const [districtdata, setdistrictdata] = useState([]);
-
+  const [loading,setloading] = useState(false)
+  const [flag, setflag] = useState(false)
 
   const radioHandler = (status) => {
     setstatus(status);
@@ -18,6 +20,7 @@ const Home = () => {
   useEffect(() => {
     const getState = async () => {
       const url = "https://cdn-api.co-vin.in/api/v2/admin/location/states";
+      
       const state = await fetch(url);
       const parsedState = await state.json();
       setstate(await parsedState.states);
@@ -63,23 +66,38 @@ const Home = () => {
 
   const handleclick = async (e) => {
     e.preventDefault();
+    setloading(true)
     let date = getdate();
     const data = await fetch(
       `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${date}`
     );
     const parsedData = await data.json();
+    // console.log(parsedData.error)
+    if(parsedData.error === 'Invalid Pincode') {
+      setloading(false)
+      return alert("Invalid Pincode")
+    }
     setdata(parsedData.sessions);
+    if(parsedData.sessions.length === 0){
+      setflag(true);
+    }
+    setloading(false)
   };
 
   const handledistrictData = async (e) => {
     e.preventDefault();
+    setloading(true)
     let date = getdate();
     const districtdata = await fetch(
       `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${districtid}&date=${date}`
     );
     const parsedDistrictData = await districtdata.json();
-    console.log(parsedDistrictData)
+    // console.log(parsedDistrictData)
     setdistrictdata(parsedDistrictData.sessions);
+    if(parsedDistrictData.sessions.length=== 0){
+      setflag(true)
+    }
+    setloading(false)
   };
   return (
     <div className="container my-3">
@@ -113,7 +131,7 @@ const Home = () => {
           />
           <label htmlFor="sectionTwo">Search by District </label>
         </div>
-
+       
         {/* <div className="radiowrapper" id="wrap3">
           <input
             type="radio"
@@ -142,7 +160,7 @@ const Home = () => {
                 onChange={(e) => onchange(e)}
                 maxLength={6}
               />
-
+             
               <div className="d-flex justify-content-center mx-5">
                 <button
                   onClick={handleclick}
@@ -155,11 +173,12 @@ const Home = () => {
             </form>
           </div>
           <div className="container row">
-            { data.length===0?<div>No vaccination centers available</div>:
+            {loading && <Spinner/>}
+            { flag ?<div>No vaccination centers available</div>:
              data.map((element) => {
               return (
                 <>
-                <div className="col-md-4" key={element.session_id}>
+                <div className="col-md-4 my-2" key={element.session_id} >
                   <div className="card" style={{ width: " 18rem" }}>
                     <div className="card-body">
                       <h5 className="card-title">{element.name}</h5>
@@ -247,10 +266,12 @@ const Home = () => {
             </div>
           </div>
           <div className="container row">
-            {districtdata.length === 0? "No Vaccination Center available" :
+            {loading && <Spinner/>}
+            {flag ? "No Vaccination Center available" :
             districtdata.map((element) => {
               return (
-                <div className="col-md-4" key={element.session_id}>
+                <>
+                <div className="col-md-4 my-2" key={element.session_id}>
                   <div className="card" style={{ width: " 18rem" }}>
                     <div className="card-body">
                       <h5 className="card-title">{element.name}</h5>
@@ -283,6 +304,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+                </>
               ); 
             })}
           </div>

@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import About from './components/About';
+// import About from './components/About';
 import Home from './components/Home';
 import Linechart from './components/Linechart';
 import { Fragment } from 'react';
@@ -24,7 +24,7 @@ function App() {
             </Fragment>
           }/>
           {/* <Route exact path='/about' element={<About/>}/> */}
-          <Route exact path='/search' element={<Home/>}/>
+          <Route exact path='/covid-tracker/search' element={<Home/>}/>
         </Routes>
       </div>
     </Router>
