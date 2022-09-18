@@ -51,7 +51,7 @@ const Linechart = () => {
 
     <div className='container justify-content-center my-3'>
         <Chart type='area'           
-            // height={550}
+            height={400}
             // width={1000}  
             series={
               [{name:'dailyCases', data:confirmed, color:'#ffa500'},{name:'deaths',data:deaths, color:'#ff0000'}]
