@@ -50,7 +50,7 @@ const Linechart = () => {
     
 
     <div className='container justify-content-center my-3'>
-        <Chart type='area'
+        <Chart type='area'           
             // height={550}
             // width={1000}  
             series={
@@ -59,13 +59,28 @@ const Linechart = () => {
             }   
             options={
                 {
+                  
                   title:{text:"Covid Daily Cases"},
                   xaxis:{
                     type:'datetime',
                     title:{text:'Date'},
                     categories:date,
                   },
-                 
+                  yaxis:{
+                    labels:{
+                      formatter: function (num) {
+                        if (num >= 1000000000) {
+                           return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'G';
+                        }
+                        if (num >= 1000000) {
+                           return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+                        }
+                        if (num >= 1000) {
+                           return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+                        }
+                      }
+                    }
+                  },
                   tooltip:{
                     x:{
                       format:'yyyy MMM dd'
@@ -91,7 +106,8 @@ const Linechart = () => {
                       opacityFrom:0.7,
                       opacityTo:0.9
                     }
-                  },
+                  }
+                  
                   // plotOptions:{
                   //   bar:{
                   //     distributed:false
