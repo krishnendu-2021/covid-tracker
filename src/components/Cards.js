@@ -22,8 +22,8 @@ const Cards = () => {
     
   return (
     <>        <h2 className='text-center my-3'>Covid Tracker</h2>
-    <div className='container d-flex my-3 justify-content-center'>
-        <div className="card mx-2" style={{width: "15rem", borderBottom:'10px solid orange'}}>
+    <div className='container d-flex my-3 justify-content-center '>
+        <div className="card mx-2  animated slideInLeft delay-2s" style={{width: "15rem", borderBottom:'10px solid orange'}}>
             <div className="card-body">
                 <h5 className="card-title">Infected</h5>
                 <p className="card-text">
@@ -35,7 +35,7 @@ const Cards = () => {
             </div>
         </div>
         
-        <div className="card mx-2" style={{width: "15rem", borderBottom:'10px solid red'}}>
+        <div className="card mx-2 animated slideInRight delay-2s" style={{width: "15rem", borderBottom:'10px solid red'}}>
             <div className="card-body">
                 <h5 className="card-title">Deaths</h5>
                 <p className="card-text">

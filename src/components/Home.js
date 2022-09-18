@@ -1,5 +1,6 @@
  import React, { useState, useEffect } from "react";
  import Spinner from "./Spinner";
+ import "./Home.css"
 
 
 const Home = () => {
@@ -107,7 +108,7 @@ const Home = () => {
         vaccination slots
       </p>
 
-      <div className="d-flex justify-content-around">
+      <div className="d-flex justify-content-around " >
         <div className="radiowrapper" id="wrap1">
           <input
             type="radio"
@@ -148,24 +149,25 @@ const Home = () => {
         <>
           <div
             style={{ backgroundColor: "#eaf1fb", height: "150px" }}
-            className="d-flex justify-content-center align-items-center my-5"
+            className="d-flex justify-content-center align-items-center my-5 "
           >
-            <form className="d-flex" style={{ width: "40%" }}>
+            <form className="d-flex justify-content-center align-items-center pin1 " style={{ width: "40%" }}>
+              <div className="d-flex justify-content-center">
               <input
                 type="pin"
-                className="form-control"
+                className="form-control text-center"
                 id="pin"
                 aria-describedby="emailHelp"
                 placeholder="Enter Your Pin"
                 onChange={(e) => onchange(e)}
                 maxLength={6}
               />
-             
+             </div>
               <div className="d-flex justify-content-center mx-5">
                 <button
                   onClick={handleclick}
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-primary btn-sm my-2 click"
                 >
                   Submit
                 </button>
@@ -222,10 +224,10 @@ const Home = () => {
         <>
           <div
             style={{ backgroundColor: "#eaf1fb", height: "150px" }}
-            className="d-flex justify-content-center align-items-center my-5"
+            className="d-flex justify-content-center align-items-center my-5 district"
           >
             <select
-              className="form-select mx-3"
+              className="form-select mx-3 stateinp"
               style={{ width: "30%" }}
               aria-label="Default select example"
               onChange={(e) => handleChangeid(e)}
@@ -241,7 +243,7 @@ const Home = () => {
             </select>
 
             <select
-              className="form-select"
+              className="form-select my-2 districtinp"
               style={{ width: "30%" }}
               aria-label="Default select example"
               onChange={(e) => handledistrict(e)}

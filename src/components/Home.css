@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   
+}
+
+/* @media (width: 1175px){
+    .pin{
+        display: flex;
+        flex-direction: column;
+    }
+} */
+
+@media screen and (max-width: 1175px) {
+    .pin1{
+        display: flex;
+        flex-direction: column;
+    }    
+  }
+
+  @media screen and (min-width: 1175px) {
+    .click{
+        padding: 9px;
+    }  
+    #pin{
+        height: 45px
+    } 
+  }
+
+@media screen and (max-width: 375px) {
+    #pin{
+        width: 60vw;
+    }
+    
+
+  }
+
+@media screen and (max-width: 546px) {
+    .district{
+        display: flex;
+        flex-direction: column;
+
+    } 
+    .stateinp{
+        width:56% !important;
+    }
+    .districtinp{
+        width:56% !important;
+    }   
+
+  }
+@media screen and (max-width: 375px) {
+    .stateinp{
+        width:56% !important;
+    }
+    .districtinp{
+        width:56% !important;
+    }    
+  }
